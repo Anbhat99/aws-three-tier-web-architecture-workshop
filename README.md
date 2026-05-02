@@ -9,7 +9,10 @@ Although this is an introductory level workshop, it is intended for those who ha
 **Pre-requisites:**
 An AWS account. If you don’t have an AWS account, follow the instructions here and click on “Create an AWS Account” button in the top right corner to create one.
 IDE or text editor of your choice.
-Architecture Overview
-Architecture Diagram
+
+**Architecture Diagram**
+
+<img width="1214" height="548" alt="image" src="https://github.com/user-attachments/assets/09abacf5-c438-4337-bb11-dcd00786d8ed" />
+
 
 In this architecture, a public-facing Application Load Balancer forwards client traffic to our web tier EC2 instances. The web tier is running Nginx webservers that are configured to serve a React.js website and redirects our API calls to the application tier’s internal facing load balancer. The internal facing load balancer then forwards that traffic to the application tier, which is written in Node.js. The application tier manipulates data in an Aurora MySQL multi-AZ database and returns it to our web tier. Load balancing, health checks and autoscaling groups are created at each layer to maintain the availability of this architecture.
